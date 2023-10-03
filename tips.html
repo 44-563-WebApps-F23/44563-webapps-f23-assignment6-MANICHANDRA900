@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <body>
+  <h2>Manichandra  shows tip amounts</h2>
+
+<form>
+    <label for="baseAmount">Enter base amount: </label>
+    <input type ="number" id="baseAmount" name="operationbaseAmount" value=50> <br>
+
+    <label for="conversion">Enter tip percent:</label>
+    <input type ="number" id="conversion" name="operationconversion" value=15 autofocus> <br>
+
+    <input type="button" onclick="tips()" value="Show tip">
+    <p id="tipResults">Tips are:</p>
+</form>
+<div>
+<script> 
+function tips(){
+    var base=document.getElementById("baseAmount").value;
+    var tips=document.getElementById("conversion").value;
+    var myOutput="";
+    for(let i=0; i<=5; i++){
+        var tipPercent=parseFloat(tips)+(i*4);
+        var toShow=(base*tipPercent)/100;
+        myOutput += tipPercent+"% is "+toShow+"; ";
+    }
+    document.getElementById('tipResults').innerHTML="Tips are:"+myOutput;
+}
+</script>
+</div>
+</body>
+</html> 
