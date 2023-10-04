@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <head>
+    <title>Tips</title>
+    </head>
  <body>
   <h2>Manichandra  shows tip amounts</h2>
 
@@ -30,37 +33,38 @@ function tips(){
 </div>
 <form>
     <input type="radio" id="sum" name="operation" value="sum">
-    <label for="sum">sum</label></br>
+    <label for="sum">sum</label><br>
 
     <input type="radio" id="diff" name="operation" value="difference">
-    <label for="diff">diff</label></br>
+    <label for="diff">diff</label><br>
 
     <input type="radio" id="mult" name="operation" value="product">
-    <label for="mult">mult</label></br>
+    <label for="mult">mult</label><br>
 
     <input type="button" onclick="chooseOp()" value="Result">
-     <p id="outpt"></p>
 </form>
+<p id="result">Results :</p>
 <script>
     function chooseOp(){
-        var base=document.getElementById("baseAmount").value;
-        var tip=document.getElementById("conversion").value;
+        var baseAmount=document.getElementById("baseAmount").value;
+        var conversion=document.getElementById("conversion").value;
 
         var operation = document.querySelector('input[name="operation"]:checked').value;
         var result;
         switch(operation){
             case "sum":
-                result = parseFloat(base) + parseFloat(tip);
+                result = parseFloat(baseAmount) + parseFloat(conversion);
                 break;
             case "difference":
-                result = parseFloat(base) - parseFloat(tip);
+                result = parseFloat(baseAmount) - parseFloat(conversion);
                 break;
             case "product":
-                result = parseFloat(base) * parseFloat(tip);
+                result = parseFloat(baseAmount) * parseFloat(conversion);
                 break;
         }
-        document.getElementById('output').innerHTML = operation + " of " + base + " and " + tip + " is: " + result;
+        document.getElementById('result').innerHTML = `${operation} of ${baseAmount} and ${conversion} is ${result}`;
     }
 </script>
+
 </body>
 </html> 
