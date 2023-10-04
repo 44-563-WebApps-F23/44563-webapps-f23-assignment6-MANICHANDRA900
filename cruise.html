@@ -9,18 +9,23 @@
 
 <form>
     <label for="sharesCabin">Shares Cabin</label>
-    <input type="checkbox" id="sharesCabin" value="True">
+    <input type="checkbox" id="sharesCabin" value="True"><br>
     <label for="breakfast">Breakfast</label>
-    <input type="checkbox" id="breakfast" value="True">
+    <input type="checkbox" id="breakfast" value="True"><br>
     <label for="poolPass">Pool Pass</label>
-    <input type="checkbox" id="poolPass" value="False">
+    <input type="checkbox" id="poolPass" value="False"><br>
     <button type="button" onclick="selectCruise()">Select a cruise</button>
 </form>
 <p id="cruiseResult"></p>
-
+<form>
+    <label for="numberOfDays">Enter the number of days:</label>
+    <input type="text" id="numberOfDays" value="7"><br>   
+    <label for="price">Enter price:</label>
+    <input type="text" id="price" value="1000"><br>
+    <button type="button" onclick="updateCruise()">Update the cruise</button>
+</form>
 <script> 
-let my_cruise = {};
-
+var my_cruise = {};
 function selectCruise() {
     my_cruise = {
         shared: document.getElementById("sharesCabin").checked,
@@ -31,6 +36,16 @@ function selectCruise() {
     document.getElementById("cruiseResult").innerHTML = JSON.stringify(my_cruise);
 }
 </script>
-
+<p id="Result1"></p>
+<script>
+    my_cruise = {};
+function updateCruise() {
+            const numberOfDays = document.getElementById("numberOfDays").value;
+            const price = document.getElementById("price").value;
+            my_cruise["days"] = numberOfDays;
+            my_cruise["price"] = price;
+            document.getElementById("Result1").innerHTML = JSON.stringify(my_cruise);
+        }
+</script>
 </body>
 </html> 
