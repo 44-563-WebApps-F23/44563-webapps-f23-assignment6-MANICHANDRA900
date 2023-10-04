@@ -43,23 +43,26 @@ function resolveForm (){
     <label for="guessAuthor">Guess the author:</label>
     <input type="text" id="guessAuthor"><br>
     <input type="button" value="Check the guess" onclick="checkAuthor()"><br>
-    <p id="result"></p>
+    <p>Good Count: <span id="good_count">0</span></p>
+    <p>Oops Count: <span id="Oops_count">0</span></p>
 </form>
+<p id="result1"></p>
 <script>   
     var good = 0;
     var oops = 0;
     function checkAuthor() {
         var hiddenAuthor = document.getElementById("hiddenAuthor").value;
         var guessAuthor = document.getElementById("guessAuthor").value;
-        if (hiddenAuthor === guessAuthor) {
+        var out = document.getElementById("result1")
+        if (hiddenAuthor == guessAuthor) {
             good++;
             alert("You got it right!");
         } else {
             oops++;
             alert("Sorry");
         }
-        document.getElementById("goodCount").textContent = good;
-        document.getElementById("oopsCount").textContent = oops;
+        document.getElementById("good_count").textContent = good;
+        document.getElementById("oops_count").textContent = oops;
     }
 </script>
 <div id="imageContainer">
